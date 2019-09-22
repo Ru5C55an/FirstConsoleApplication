@@ -2,17 +2,24 @@
 //
 
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 
 int main()
 {
-	float f = 0, a = 0, b = 0, c = 0, x=0;
-	cout << "Введите значения a, b, c, Xнач, Xкон, dX через запятую: ";
-	cin >> a >> b >> c >> x;
-	if (x < 0 && b != 0) f = a * x^2 + b;
-	if (x > 0 && b == 0) f = (x - a) / (x - c);
-	else f = x / c;
-	cout << "F = " << f << endl;
+	SetConsoleCP(1251); // установка кодовой страницы win-cp 1251 в поток ввода
+	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	float f = 0, a = 0, b = 0, c = 0, xStep=0, xStart = 0, xEnd=0;
+	cout << "Лабораторная работа №1 \n Вариант №1 \n";
+	cout << "Введите значения a, b, c, Xнач, Xкон и шаг через пробел: ";
+	cin >> a >> b >> c >> xStart >> xEnd >> xStep;
+	for (float x = xStart; x <= xEnd; x += xStep)
+	{
+		if (x < 0 && b != 0) f = a * pow(x,2) + b;
+		if (x > 0 && b == 0) f = (x - a) / (x - c);
+		else f = x / c;
+		cout << "При x = "<< x << " F = " << f << endl;
+	}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
