@@ -15,8 +15,8 @@ int main()
 	cin >> a >> b >> c >> xStart >> xEnd >> xStep;
 	for (float x = xStart; x <= xEnd; x += xStep)
 	{
-		if (x < 0 && b != 0) f = a * pow(x,2) + b;
-		if (x > 0 && b == 0) f = (x - a) / (x - c);
+		if ((x < 0) && (b != 0)) f = a * pow(x,2) + b;
+		if ((x > 0) && (b == 0)) f = (x - a) / (x - c);
 		else f = x / c;
 		cout << "При x = "<< x << " F = " << f << endl;
 	}
